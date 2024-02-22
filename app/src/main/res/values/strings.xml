@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyCooking</string>
+    <string name="welcome_app">Cùng bạn nấu ăn</string>
+
 </resources>
