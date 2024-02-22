@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">MyCooking</string>
-    <string name="welcome_app">Cùng bạn nấu ăn</string>
+    <string name="welcome_app">Cook delicious dishes with you every day</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_favorite">Favorite</string>
+    <string name="tab_category">Category</string>
+    <string name="tab_setting">Setting</string>
+    <string name="list_favorite">List of favorite dishes</string>
+    <string name="user_setting">Privacy Setting</string>
+    <string name="app_setting">Application Setting</string>
+    <string name="todo">TODO</string>
 
 </resources>
