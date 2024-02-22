@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.MyCooking" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -6,4 +6,15 @@
     </style>
 
     <style name="Theme.MyCooking" parent="Base.Theme.MyCooking" />
+
+    <style name="AppTheme.Light" parent="Theme.AppCompat.Light">
+        <!-- Cấu hình các thuộc tính giao diện cho chế độ sáng -->
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <!-- Chế độ tối -->
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <!-- Cấu hình các thuộc tính giao diện cho chế độ tối -->
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
 </resources>
