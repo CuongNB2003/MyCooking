@@ -2,6 +2,7 @@ package com.devcuong.mycooking.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.devcuong.mycooking.R;
 import com.devcuong.mycooking.obj.Category;
+import com.devcuong.mycooking.screens.MealCategoryActivity;
 
 import java.util.List;
 
@@ -51,7 +53,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 .error(R.drawable.ic_category)
                 .transform(new CircleCrop())
                 .into(holder.imgCategory);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MealCategoryActivity.class);
+                intent.putExtra("nameCategory", category.getStrCategory());
+                mContext.startActivity(intent);
 
+            }
+        });
     }
 
     @Override

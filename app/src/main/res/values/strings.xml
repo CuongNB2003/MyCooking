@@ -14,5 +14,6 @@
     <string name="send_feedback">Send us feedback</string>
     <string name="call_feddback">Call for feedback</string>
     <string name="exit">Exit</string>
+    <string name="meal_category">MealCategory</string>
 
 </resources>
