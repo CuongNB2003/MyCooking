@@ -8,4 +8,6 @@
     <color name="drak_red">#A30915</color>
     <color name="red">#F5000F</color>
     <color name="orange">#FD5200</color>
+    <color name="gray">#FFBDBDBD</color>
+    <color name="light_gray">#E0E0E0</color>
 </resources>

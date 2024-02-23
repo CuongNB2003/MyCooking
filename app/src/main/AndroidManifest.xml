@@ -13,7 +13,10 @@
         android:theme="@style/Theme.MyCooking"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name=".screens.FavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +25,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false">
-        </activity>
+            android:name=".screens.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

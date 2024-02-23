@@ -7,14 +7,25 @@
 
     <style name="Theme.MyCooking" parent="Base.Theme.MyCooking" />
 
-    <style name="AppTheme.Light" parent="Theme.AppCompat.Light">
-        <!-- Cấu hình các thuộc tính giao diện cho chế độ sáng -->
-        <item name="android:textColorPrimary">@color/white</item>
+    <!--    chế độ sáng-->
+    <style name="ScreenBackground">
+        <item name="android:background">@color/white</item>
     </style>
+    <style name="TextViewNone">
+        <item name="android:textColor">@color/dark_blue</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="TextViewTitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+<!--    <style name="ScreenBackground">-->
+<!--        <item name="android:background">@color/white</item>-->
+<!--    </style>-->
 
-    <!-- Chế độ tối -->
-    <style name="AppTheme.Dark" parent="Theme.AppCompat">
-        <!-- Cấu hình các thuộc tính giao diện cho chế độ tối -->
-        <item name="android:textColorPrimary">@color/black</item>
-    </style>
 </resources>

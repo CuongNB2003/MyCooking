@@ -3,47 +3,179 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="20dp"
-    android:background="@color/white"
+    style="@style/ScreenBackground"
     android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="10dp"
     tools:context=".fragments.SettingFragment">
 
     <TextView
-        style="@style/CustomTextviewTitle"
-        android:text="@string/tab_setting"
-        android:layout_marginBottom="20dp"/>
+        style="@style/TextViewTitle"
+        android:layout_marginBottom="20dp"
+        android:text="@string/tab_setting" />
 
     <TextView
-        style="@style/CustomTextviewNone"
+        style="@style/TextViewNone"
+        android:layout_marginBottom="9dp"
         android:text="@string/user_setting"
-        android:layout_marginBottom="20dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
     <LinearLayout
+        android:id="@+id/ll_list_favorite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
         tools:ignore="UseCompoundDrawables">
-
-        <TextView
-            style="@style/CustomTextviewNone"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/list_favorite"/>
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_back"
-            android:contentDescription="@string/todo" />
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_favorite" />
+
+        <TextView
+            style="@style/TextViewNone"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:text="@string/list_favorite" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_next" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/TextViewNone"
+        android:layout_marginBottom="9dp"
+        android:text="@string/app_setting"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            style="@style/TextViewNone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/drak_mode" />
+
+        <Switch
+            android:id="@+id/switch_dark_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:ignore="UseSwitchCompatOrMaterialXml"
+            android:track="@drawable/bg_track"
+            android:thumb="@drawable/ic_thumb"/>
+    </LinearLayout>
+
+    <TextView
+        style="@style/TextViewNone"
+        android:layout_marginBottom="9dp"
+        android:text="@string/feedback_setting"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/ll_send_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_mail" />
+
+        <TextView
+            style="@style/TextViewNone"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:text="@string/send_feedback" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_next" />
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/brown"
         android:layout_marginVertical="15dp"
-        android:elevation="2dp"
-        android:backgroundTint="@color/brown"/>
+        android:background="@color/brown"
+        android:backgroundTint="@color/brown"
+        android:elevation="2dp" />
 
+    <LinearLayout
+        android:id="@+id/ll_call_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_phone" />
+
+        <TextView
+            style="@style/TextViewNone"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:text="@string/call_feddback" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_next" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/ll_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            style="@style/TextViewNone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/exit"
+            android:textColor="@color/red"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_exit"
+            />
+    </LinearLayout>
 
 </LinearLayout>

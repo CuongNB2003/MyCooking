@@ -6,8 +6,13 @@
     <string name="tab_category">Category</string>
     <string name="tab_setting">Setting</string>
     <string name="list_favorite">List of favorite dishes</string>
-    <string name="user_setting">Privacy Setting</string>
-    <string name="app_setting">Application Setting</string>
+    <string name="user_setting">Privacy</string>
+    <string name="app_setting">Application</string>
     <string name="todo">TODO</string>
+    <string name="feedback_setting">Feedback</string>
+    <string name="drak_mode">Dark background mode</string>
+    <string name="send_feedback">Send us feedback</string>
+    <string name="call_feddback">Call for feedback</string>
+    <string name="exit">Exit</string>
 
 </resources>

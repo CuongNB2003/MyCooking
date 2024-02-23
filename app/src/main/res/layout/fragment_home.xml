@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginHorizontal="10dp"
-    android:background="@color/white"
+    style="@style/ScreenBackground"
     tools:context=".fragments.SettingFragment">
 
     <TextView
-        style="@style/CustomTextviewTitle"
+        style="@style/TextViewTitle"
         android:text="@string/tab_home"/>
 
 </LinearLayout>
