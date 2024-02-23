@@ -17,11 +17,14 @@ import com.devcuong.mycooking.fragments.HomeFragment;
 import com.devcuong.mycooking.fragments.SettingFragment;
 
 public class MainActivity extends BaseActivity {
+    private int currentTab = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AHBottomNavigation bottomNavigation = findViewById(R.id.bottom_navigation);
+
         replaceFragment(new HomeFragment());
         SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         boolean checkMode = sharedPreferences.getBoolean("DarkMode", false);
@@ -55,6 +58,10 @@ public class MainActivity extends BaseActivity {
         }
 
         bottomNavigation.setOnTabSelectedListener((position, wasSelected) -> {
+            if (position == currentTab) {
+                return false;
+            }
+            currentTab = position;
             switch (position) {
                 case 0:
                     replaceFragment(new HomeFragment());

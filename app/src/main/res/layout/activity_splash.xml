@@ -26,7 +26,8 @@
     <TextView
         style="@style/TextViewNone"
         android:layout_marginTop="10dp"
-        android:text="@string/welcome_app"/>
+        android:text="@string/welcome_app"
+        android:gravity="center"/>
 
     <ProgressBar
         android:layout_width="match_parent"
