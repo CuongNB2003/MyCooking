@@ -7,17 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.devcuong.mycooking.R;
 
 public class HomeFragment extends Fragment {
-
     public HomeFragment() {
         // Required empty public constructor
-    }
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        return fragment;
     }
 
     @Override

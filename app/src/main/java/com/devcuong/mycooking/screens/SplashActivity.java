@@ -1,7 +1,9 @@
-package com.devcuong.mycooking;
+package com.devcuong.mycooking.screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.devcuong.mycooking.R;
 
 public class SplashActivity extends BaseActivity {
 

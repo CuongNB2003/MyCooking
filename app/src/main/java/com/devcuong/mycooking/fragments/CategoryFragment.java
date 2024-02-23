@@ -15,11 +15,6 @@ public class CategoryFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static CategoryFragment newInstance(String param1, String param2) {
-        CategoryFragment fragment = new CategoryFragment();
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
