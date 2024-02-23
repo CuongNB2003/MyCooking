@@ -12,9 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyCooking"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".screens.MealCategoryActivity"
+            android:exported="false" />
         <activity
             android:name=".screens.CookDetailActivity"
             android:exported="false" />
