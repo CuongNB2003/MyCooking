@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity {
             bottomNavigation.addItem(item3);
             // cấu hình cho bottom
             bottomNavigation.setDefaultBackgroundColor(Color.parseColor("#FF000000"));
-            bottomNavigation.setAccentColor(Color.parseColor("#A30915"));
+            bottomNavigation.setAccentColor(Color.parseColor("#FD960B"));
             bottomNavigation.setInactiveColor(Color.parseColor("#FFFFFFFF"));
             bottomNavigation.setTitleState(AHBottomNavigation.TitleState.SHOW_WHEN_ACTIVE_FORCE);
         }else {
