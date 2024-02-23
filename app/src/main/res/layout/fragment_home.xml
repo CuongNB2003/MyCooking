@@ -4,12 +4,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginHorizontal="20dp"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="15dp"
     style="@style/ScreenBackground"
     tools:context=".fragments.SettingFragment">
 
-    <TextView
-        style="@style/TextViewTitle"
-        android:text="@string/tab_home"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            style="@style/TextViewTitle"
+            android:text="@string/tab_home"
+            android:layout_width="0dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_search"
+            android:layout_gravity="center"
+            android:background="@drawable/rouder_button"/>
+    </LinearLayout>
 
 </LinearLayout>

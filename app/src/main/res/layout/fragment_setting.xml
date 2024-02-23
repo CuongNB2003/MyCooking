@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     style="@style/ScreenBackground"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
     android:paddingVertical="10dp"
+    android:paddingHorizontal="15dp"
     tools:context=".fragments.SettingFragment">
 
     <TextView
+        android:layout_gravity="center_horizontal"
         style="@style/TextViewTitle"
         android:layout_marginBottom="20dp"
         android:text="@string/tab_setting" />

@@ -4,11 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginHorizontal="10dp"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="15dp"
     style="@style/ScreenBackground"
     tools:context=".fragments.SettingFragment">
 
     <TextView
+        android:layout_gravity="center_horizontal"
         style="@style/TextViewTitle"
         android:text="@string/tab_category"/>
 
