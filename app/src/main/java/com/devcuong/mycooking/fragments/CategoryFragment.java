@@ -62,7 +62,7 @@ public class CategoryFragment extends Fragment {
         AHBottomNavigation bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
-        recyclerView.addItemDecoration(new GridSpacingItemDecoration(3, 30, true));
+        recyclerView.addItemDecoration(new GridSpacingItemDecoration(3, 30, false));
         recyclerView.setLayoutManager(gridLayoutManager);
         // kiểm tra người dùng để set trạng thái cho AHBottomNavigation
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -82,14 +82,6 @@ public class CategoryFragment extends Fragment {
         callApiGetListCategory();
     }
 
-    private void updateUIWithCategories(List<Category> categories) {
-        // Cập nhật giao diện với dữ liệu từ 'categories'
-        // Ví dụ: cập nhật Adapter của RecyclerView
-        CategoryAdapter adapter = new CategoryAdapter(getActivity());
-        adapter.setData(categories);
-        recyclerView.setAdapter(adapter);
-    }
-
     private void callApiGetListCategory(){
         recyclerView.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
@@ -100,7 +92,9 @@ public class CategoryFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 assert response.body() != null;
                 mListCategory = response.body().getCategories();
-                updateUIWithCategories(mListCategory);
+                CategoryAdapter adapter = new CategoryAdapter(getActivity());
+                adapter.setData(mListCategory);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
