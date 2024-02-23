@@ -59,7 +59,7 @@ public class CategoryFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recy_category);
         tvErrMess = view.findViewById(R.id.tv_error_message);
         progressBar = view.findViewById(R.id.progressBar);
-        AHBottomNavigation bottomNavigation = view.findViewById(R.id.bottom_navigation);
+        AHBottomNavigation bottomNavigation = getActivity().findViewById(R.id.bottom_navigation);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
         recyclerView.addItemDecoration(new GridSpacingItemDecoration(3, 30, true));
