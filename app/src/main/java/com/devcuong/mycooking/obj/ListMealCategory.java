@@ -3,13 +3,13 @@ package com.devcuong.mycooking.obj;
 import java.util.List;
 
 public class ListMealCategory {
-    private List<MealCategory> mealCategoryList;
+    private List<MealCategory> meals;
 
-    public List<MealCategory> getMealCategoryList() {
-        return mealCategoryList;
+    public List<MealCategory> getMeals() {
+        return meals;
     }
 
-    public void setMealCategoryList(List<MealCategory> mealCategoryList) {
-        this.mealCategoryList = mealCategoryList;
+    public void setMeals(List<MealCategory> meals) {
+        this.meals = meals;
     }
 }

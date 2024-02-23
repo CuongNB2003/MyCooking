@@ -29,8 +29,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setData(List<Category> mArrayList) {
-        this.mListCategory = mArrayList;
+    public void setData(List<Category> list) {
+        this.mListCategory = list;
         notifyDataSetChanged();
     }
 
@@ -53,14 +53,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 .error(R.drawable.ic_category)
                 .transform(new CircleCrop())
                 .into(holder.imgCategory);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, MealCategoryActivity.class);
-                intent.putExtra("nameCategory", category.getStrCategory());
-                mContext.startActivity(intent);
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, MealCategoryActivity.class);
+            intent.putExtra("nameCategory", category.getStrCategory());
+            mContext.startActivity(intent);
 
-            }
         });
     }
 

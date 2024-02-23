@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
+
     private final int spanCount;
     private final int spacing;
     private final boolean includeEdge;
