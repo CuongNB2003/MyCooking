@@ -1,6 +1,7 @@
 package com.devcuong.mycooking.retrofit;
 
 import com.devcuong.mycooking.obj.ListCategory;
+import com.devcuong.mycooking.obj.ListMealCategory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -8,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 public interface MealRetrofitApi {
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
@@ -17,7 +19,10 @@ public interface MealRetrofitApi {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build().create(MealRetrofitApi.class);
 
-    @GET("categories.php")
+    @GET("categories.php") // liệt kê tất cả thể loại món ăn
     Call<ListCategory> getListCategory();
+    @GET("filter.php") // liệt kê các món ăn theo thể loại
+    Call<ListMealCategory> getListMealCategory(@Query("c") String nameCategory);
+
 
 }
