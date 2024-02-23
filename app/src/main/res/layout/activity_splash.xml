@@ -7,7 +7,8 @@
     android:gravity="center"
     style="@style/ScreenBackground"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="15dp"
     tools:context=".screens.MainActivity">
 
     <ImageView
