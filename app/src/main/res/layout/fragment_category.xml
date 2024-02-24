@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_gravity="center_horizontal"
-        style="@style/TextViewTitle"
+        style="@style/TextViewTitleApp"
         android:text="@string/tab_category"/>
 
     <FrameLayout
@@ -25,6 +25,7 @@
             android:visibility="gone" />
 
         <TextView
+            android:text="@string/err_mess"
             style="@style/TextViewError"
             android:id="@+id/tv_error_message"
             android:layout_gravity="center"

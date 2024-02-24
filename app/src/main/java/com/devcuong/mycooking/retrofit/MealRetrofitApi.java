@@ -1,6 +1,7 @@
 package com.devcuong.mycooking.retrofit;
 
 import com.devcuong.mycooking.obj.ListCategory;
+import com.devcuong.mycooking.obj.ListMeal;
 import com.devcuong.mycooking.obj.ListMealCategory;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +24,8 @@ public interface MealRetrofitApi {
     Call<ListCategory> getListCategory();
     @GET("filter.php") // liệt kê các món ăn theo thể loại
     Call<ListMealCategory> getListMealCategory(@Query("c") String nameCategory);
+    @GET("lookup.php") // tìm món ăn theo id
+    Call<ListMeal> getMeal(@Query("i") String idMeal);
 
 
 }

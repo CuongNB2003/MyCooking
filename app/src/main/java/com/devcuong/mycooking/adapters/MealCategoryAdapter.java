@@ -2,8 +2,7 @@ package com.devcuong.mycooking.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +10,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.devcuong.mycooking.R;
 import com.devcuong.mycooking.obj.MealCategory;
+import com.devcuong.mycooking.screens.CookDetailActivity;
 
 import java.util.List;
 
@@ -53,23 +48,15 @@ public class MealCategoryAdapter extends RecyclerView.Adapter<MealCategoryAdapte
         }
         holder.tvNameMealCategory.setText(mealCategory.getStrMeal());
         Glide.with(mContext)
-                .asBitmap()
                 .load(mealCategory.getStrMealThumb())
                 .error(R.drawable.ic_category)
-                .into(new CustomTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                        RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(mContext.getResources(), resource);
-                        roundedBitmapDrawable.setCornerRadius(20f); // thay đổi giá trị này để điều chỉnh bán kính góc bo
-                        holder.imgMealCategory.setImageDrawable(roundedBitmapDrawable);
-                    }
+                .into(holder.imgMealCategory);
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, CookDetailActivity.class);
+            intent.putExtra("IdMeal", mealCategory.getIdMeal());
+            mContext.startActivity(intent);
 
-                    @Override
-                    public void onLoadCleared(@Nullable Drawable placeholder) {
-                        holder.imgMealCategory.setImageDrawable(placeholder);
-                    }
-                });
-
+        });
 
     }
 

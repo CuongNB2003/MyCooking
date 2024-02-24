@@ -28,7 +28,7 @@
 
         <TextView
             android:gravity="center_horizontal"
-            style="@style/TextViewTitle"
+            style="@style/TextViewTitleApp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginEnd="25dp"
@@ -51,11 +51,30 @@
             style="@style/TextViewNone"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recy_mealcategory"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/pb_meal_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:text="@string/err_mess"
+            style="@style/TextViewError"
+            android:id="@+id/tv_err_meal_category"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy_mealcategory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
 
 
 </LinearLayout>

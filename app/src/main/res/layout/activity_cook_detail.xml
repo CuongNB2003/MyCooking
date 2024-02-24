@@ -1,9 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScreenBackground"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screens.CookDetailActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        style="@style/ScreenBackground"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/yellow"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:id="@+id/img_meal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/todo"
+                    android:scaleType="centerCrop" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_nameMeal_img"
+                style="@style/TextViewTitle"
+                android:layout_gravity="bottom|start"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="8dp"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin">
+
+                <ImageButton
+                    android:id="@+id/img_back_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_back"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/tv_nameMeal_tb"
+                    style="@style/TextViewTitle"
+                    android:layout_marginStart="10dp"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:visibility="gone" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="15dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/pb_meal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_err_meal"
+                style="@style/TextViewError"
+                android:layout_gravity="center"
+                android:text="@string/err_mess"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/ll_meal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewLine"
+                    android:layout_marginVertical="10dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/youtube_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/img_youtube"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_youtobe"
+                            android:contentDescription="@string/todo" />
+
+                        <TextView
+                            android:id="@+id/tv_youtube"
+                            style="@style/TextViewNone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/img_youtube"
+                            android:layout_alignBottom="@id/img_youtube"
+                            android:layout_marginStart="5dp"
+                            android:layout_toEndOf="@id/img_youtube"
+                            android:gravity="center"
+                            android:text="@string/youtube"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/website_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="RelativeOverlap">
+
+                        <ImageView
+                            android:id="@+id/img_website"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_website"
+                            android:contentDescription="@string/todo" />
+
+                        <TextView
+                            android:id="@+id/tv_website"
+                            style="@style/TextViewNone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/img_website"
+                            android:layout_alignTop="@id/img_website"
+                            android:layout_alignBottom="@id/img_website"
+                            android:layout_marginStart="5dp"
+                            android:gravity="center"
+                            android:text="@string/website" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+                <TextView
+                    style="@style/TextViewLine"
+                    android:layout_height="5dp"
+                    android:layout_marginVertical="10dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_category_meal"
+                        style="@style/TextViewNone"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:id="@+id/tv_area_meal"
+                        style="@style/TextViewNone"
+                        android:layout_alignParentEnd="true" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_tags_meal"
+                    style="@style/TextViewNone" />
+
+                <TextView
+                    style="@style/TextViewLine"
+                    android:layout_height="5dp"
+                    android:layout_marginVertical="10dp" />
+
+                <TextView
+                    style="@style/TextViewNone"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/cooking"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_cooking_meal"
+                    style="@style/TextViewNone" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

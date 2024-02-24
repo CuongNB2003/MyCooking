@@ -57,7 +57,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             Intent intent = new Intent(mContext, MealCategoryActivity.class);
             intent.putExtra("nameCategory", category.getStrCategory());
             mContext.startActivity(intent);
-
         });
     }
 
