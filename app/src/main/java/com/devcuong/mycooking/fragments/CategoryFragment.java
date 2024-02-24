@@ -100,7 +100,6 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Call<ListCategory> call, @NonNull Throwable t) {
                 new Handler().postDelayed(() -> {
-                    tvErrMess.setText("Lỗi kết nối :(");
                     tvErrMess.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.GONE);
 

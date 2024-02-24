@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,9 +28,11 @@ import retrofit2.Response;
 
 public class MealCategoryActivity extends BaseActivity {
     private List<MealCategory> mListCategory;
+    private ProgressBar progressBar;
     private String nameCategory;
     private RecyclerView recyMealCategory;
-    private TextView tvNameCategory, tvSumMeal;
+    private TextView tvNameCategory, tvSumMeal, tvErrMess;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class MealCategoryActivity extends BaseActivity {
         recyMealCategory = findViewById(R.id.recy_mealcategory);
         tvNameCategory = findViewById(R.id.tv_name_category);
         tvSumMeal = findViewById(R.id.tv_sum_mealcategory);
+        tvErrMess = findViewById(R.id.tv_err_meal_category);
+        progressBar = findViewById(R.id.pb_meal_category);
         nameCategory = getIntent().getStringExtra("nameCategory");
         btnBack.setOnClickListener(v -> finish());
 
@@ -53,19 +58,21 @@ public class MealCategoryActivity extends BaseActivity {
         callApiGetListMealCategory();
     }
 
-    private void callApiGetListMealCategory(){
+    private void callApiGetListMealCategory() {
         recyMealCategory.setVisibility(View.GONE);
-//        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
         MealRetrofitApi.mealRetrofitApi.getListMealCategory(nameCategory).enqueue(new Callback<ListMealCategory>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(@NonNull Call<ListMealCategory> call, @NonNull Response<ListMealCategory> response) {
                 recyMealCategory.setVisibility(View.VISIBLE);
-//                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 assert response.body() != null;
                 mListCategory = response.body().getMeals();
-                tvNameCategory.setText("Name: "+nameCategory);
-                tvSumMeal.setText("Sum: "+mListCategory.size());
+                String nameCategoryString = getResources().getString(R.string.name_category);
+                String sumString = getResources().getString(R.string.sum);
+                tvNameCategory.setText(nameCategoryString + " " + nameCategory);
+                tvSumMeal.setText(sumString + " " + mListCategory.size());
                 MealCategoryAdapter adapter = new MealCategoryAdapter(MealCategoryActivity.this);
                 adapter.setData(mListCategory);
                 recyMealCategory.setAdapter(adapter);
@@ -74,9 +81,8 @@ public class MealCategoryActivity extends BaseActivity {
             @Override
             public void onFailure(@NonNull Call<ListMealCategory> call, @NonNull Throwable t) {
                 new Handler().postDelayed(() -> {
-//                    tvErrMess.setText("Lỗi kết nối :(");
-//                    tvErrMess.setVisibility(View.VISIBLE);
-//                    progressBar.setVisibility(View.GONE);
+                    tvErrMess.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
 
                 }, 500);
             }

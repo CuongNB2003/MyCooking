@@ -18,7 +18,7 @@
         tools:ignore="UseCompoundDrawables">
 
         <TextView
-            style="@style/TextViewTitle"
+            style="@style/TextViewTitleApp"
             android:text="@string/tab_home"
             android:layout_width="0dp"
             android:layout_marginHorizontal="5dp"
@@ -29,7 +29,8 @@
             android:layout_height="32dp"
             android:src="@drawable/ic_search"
             android:layout_gravity="center"
-            android:background="@drawable/rouder_button"/>
+            android:background="@drawable/rouder_button"
+            android:contentDescription="@string/todo" />
     </LinearLayout>
 
 </LinearLayout>
