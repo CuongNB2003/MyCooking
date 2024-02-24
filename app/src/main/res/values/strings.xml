@@ -15,5 +15,16 @@
     <string name="call_feddback">Call for feedback</string>
     <string name="exit">Exit</string>
     <string name="meal_category">Meal Category</string>
+    <string name="err_mess">Lỗi kết nối :(</string>
+    <string name="youtube">Youtube</string>
+    <string name="website">WebSite</string>
+    <string name="sum">Sum: </string>
+    <string name="category">Category:</string>
+    <string name="name_category">Name:</string>
+    <string name="area">Area:</string>
+    <string name="ingredient">Ingredient:</string>
+    <string name="cooking">Cooking Instructions</string>
+    <string name="no_link">The link has not been updated yet</string>
+
 
 </resources>
