@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScreenBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingVertical="10dp"
     android:paddingHorizontal="15dp"
-    style="@style/ScreenBackground"
+    android:paddingVertical="10dp"
     tools:context=".fragments.SettingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
-        android:layout_marginBottom="16dp"
         tools:ignore="UseCompoundDrawables">
 
         <TextView
             style="@style/TextViewTitleApp"
-            android:text="@string/tab_home"
             android:layout_width="0dp"
             android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/tab_home" />
 
         <ImageButton
+            android:id="@+id/img_back_home"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_search"
             android:layout_gravity="center"
             android:background="@drawable/rouder_button"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_search" />
     </LinearLayout>
+
+    <TextView
+        style="@style/TextViewNone"
+        android:text="@string/today_dish"
+        android:textStyle="bold" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_meal_category"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="10dp"
+        android:contentDescription="@string/todo"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/roundedCornersTop" />
+
+    <TextView
+        style="@style/TextViewNone"
+        android:text="@string/my_like"
+        android:textStyle="bold" />
 
 </LinearLayout>
