@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="170dp"
+    android:layout_width="200dp"
+    android:layout_marginTop="5dp"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img_meal_category"
-        android:layout_width="170dp"
-        android:layout_height="240dp"
+    <ImageView
+        android:id="@+id/img_home_category"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:scaleType="centerCrop"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/todo"
-        app:shapeAppearanceOverlay="@style/roundedCornersTop"
-        />
+        android:contentDescription="@string/todo" />
 
     <TextView
+        android:layout_marginHorizontal="10dp"
         style="@style/TextViewNone"
         android:layout_gravity="center"
-        android:id="@+id/tv_meal_category_name"
+        android:id="@+id/tv_home_category_name"
         android:layout_marginTop="3dp"
-        android:maxLines="2"
+        android:singleLine="true"
         android:ellipsize="end"/>
 
 </LinearLayout>
