@@ -27,6 +27,7 @@
     <string name="no_link">The link has not been updated yet</string>
     <string name="today_dish">Recommended dish for today</string>
     <string name="my_like">You may also like</string>
+    <string name="loading">Loading</string>
 
 
 </resources>
