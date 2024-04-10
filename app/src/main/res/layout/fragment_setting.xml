@@ -115,7 +115,7 @@
     </LinearLayout>
 
     <TextView
-        style="@style/TextViewLine"
+        style="@style/TextViewLineHorizontal"
         android:layout_marginVertical="15dp"/>
 
     <LinearLayout
