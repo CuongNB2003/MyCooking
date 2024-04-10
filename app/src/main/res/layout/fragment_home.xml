@@ -43,37 +43,95 @@
             android:text="@string/today_dish"
             android:textStyle="bold" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/img_home_meal"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_gravity="center_horizontal"
+        <FrameLayout
             android:layout_marginVertical="5dp"
-            android:contentDescription="@string/todo"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/roundedCornersTop" />
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_home_meal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/roundedCornersTop" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/err_mess"
+                style="@style/TextViewNone"
+                android:id="@+id/tv_err_img"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <TextView
             style="@style/TextViewNone"
             android:text="@string/tab_category"
             android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recy_home_category"
+        <FrameLayout
+
+            android:layout_marginVertical="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="5dp" />
+            android:layout_height="50dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy_home_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar_category"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/err_mess"
+                style="@style/TextViewNone"
+                android:id="@+id/tv_err_category"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <TextView
             style="@style/TextViewNone"
             android:text="@string/my_like"
             android:textStyle="bold" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recy_home_meals"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:layout_marginVertical="5dp" />
+            android:layout_marginVertical="5dp"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy_home_meals"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"/>
+            <ProgressBar
+                android:id="@+id/progress_bar_meals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:text="@string/err_mess"
+                style="@style/TextViewNone"
+                android:id="@+id/tv_err_meals"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
