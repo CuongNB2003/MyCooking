@@ -29,7 +29,7 @@
                 android:text="@string/tab_home" />
 
             <ImageButton
-                android:id="@+id/img_back_home"
+                android:id="@+id/img_search"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
@@ -44,11 +44,11 @@
             android:textStyle="bold" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/img_meal_category"
+            android:id="@+id/img_home_meal"
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="5dp"
             android:contentDescription="@string/todo"
             android:scaleType="centerCrop"
             app:shapeAppearanceOverlay="@style/roundedCornersTop" />
@@ -62,7 +62,7 @@
             android:id="@+id/recy_home_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp" />
+            android:layout_marginVertical="5dp" />
 
         <TextView
             style="@style/TextViewNone"
@@ -70,10 +70,10 @@
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recy_home_"
+            android:id="@+id/recy_home_meals"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none"
-            android:layout_marginVertical="10dp" />
+            android:layout_marginVertical="5dp" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

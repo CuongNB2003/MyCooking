@@ -13,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.devcuong.mycooking.R;
 import com.devcuong.mycooking.obj.Category;
 import com.devcuong.mycooking.screens.MealCategoryActivity;
@@ -50,7 +49,6 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         Glide.with(mContext)
                 .load(category.getStrCategoryThumb())
                 .error(R.drawable.ic_category)
-                .transform(new CircleCrop())
                 .into(holder.imgCategory);
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, MealCategoryActivity.class);

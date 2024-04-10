@@ -100,7 +100,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    style="@style/TextViewLine"
+                    style="@style/TextViewLineHorizontal"
                     android:layout_marginVertical="10dp" />
 
                 <RelativeLayout
@@ -165,7 +165,7 @@
 
 
                 <TextView
-                    style="@style/TextViewLine"
+                    style="@style/TextViewLineHorizontal"
                     android:layout_height="5dp"
                     android:layout_marginVertical="10dp" />
 
@@ -189,7 +189,7 @@
                     style="@style/TextViewNone" />
 
                 <TextView
-                    style="@style/TextViewLine"
+                    style="@style/TextViewLineHorizontal"
                     android:layout_height="5dp"
                     android:layout_marginVertical="10dp" />
 

@@ -26,6 +26,7 @@ public interface MealRetrofitApi {
     Call<ListMealCategory> getListMealCategory(@Query("c") String nameCategory);
     @GET("lookup.php") // tìm món ăn theo id
     Call<ListMeal> getMeal(@Query("i") String idMeal);
-
+    @GET("random.php") // random 1 món ăn nào đó
+    Call<ListMeal> getRandomMeal();
 
 }
