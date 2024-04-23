@@ -30,6 +30,8 @@ public interface MealRetrofitApi {
     Call<ListMeal> getRandomMeal();
     @GET("filter.php") // liệt món ăn theo khu vực
     Call<ListMealCategory> getListMealByArea(@Query("a") String nameArea);
+    @GET("search.php") // tìm kiếm món ăn theo tên
+    Call<ListMeal> searchMeal(@Query("s") String nameMeal);
 
 
 }
