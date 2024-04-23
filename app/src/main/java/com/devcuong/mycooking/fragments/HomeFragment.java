@@ -115,11 +115,6 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<ListMealCategory> call, @NonNull Throwable t) {
-                new Handler().postDelayed(() -> {
-                    tvErrListMeal.setVisibility(View.VISIBLE);
-                    progressBarMeal.setVisibility(View.GONE);
-                    recyHomeMeals.setVisibility(View.GONE);
-                }, 500);
             }
         });
     }
@@ -163,6 +158,7 @@ public class HomeFragment extends Fragment {
                 new Handler().postDelayed(() -> {
                     tvErrRandomMeal.setVisibility(View.VISIBLE);
                     progressBarImg.setVisibility(View.GONE);
+                    progressBarMeal.setVisibility(View.GONE);
                     imgHomeMeal.setVisibility(View.GONE);
                     tvErrListMeal.setVisibility(View.VISIBLE);
                 }, 500);
