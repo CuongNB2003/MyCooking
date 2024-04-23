@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -91,19 +92,20 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
         imgSearch.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SearchActivity.class);
-            startActivity(intent);
+            if(!mListRandomMeal.isEmpty()){
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                intent.putExtra("nameMeal", mListRandomMeal.get(0).getStrMeal());
+                startActivity(intent);
+            }else {
+                Toast.makeText(getContext(), "Vui lòng chậm lại một chút", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
     private void callAPIGetListMeal(String name_area) {
-        recyHomeMeals.setVisibility(View.GONE);
-        progressBarMeal.setVisibility(View.VISIBLE);
         MealRetrofitApi.mealRetrofitApi.getListMealByArea(name_area).enqueue(new Callback<ListMealCategory>() {
             @Override
             public void onResponse(@NonNull Call<ListMealCategory> call, @NonNull Response<ListMealCategory> response) {
-                recyHomeMeals.setVisibility(View.VISIBLE);
-                progressBarMeal.setVisibility(View.GONE);
                 assert response.body() != null;
                 mListMeal = response.body().getMeals();
                 MealCategoryAdapter adapter = new MealCategoryAdapter(getActivity());
@@ -137,11 +139,15 @@ public class HomeFragment extends Fragment {
     private void callAPIGetMeal() {
         imgHomeMeal.setVisibility(View.GONE);
         progressBarImg.setVisibility(View.VISIBLE);
+        recyHomeMeals.setVisibility(View.GONE);
+        progressBarMeal.setVisibility(View.VISIBLE);
         MealRetrofitApi.mealRetrofitApi.getRandomMeal().enqueue(new Callback<ListMeal>() {
             @Override
             public void onResponse(@NonNull Call<ListMeal> call, @NonNull Response<ListMeal> response) {
                 imgHomeMeal.setVisibility(View.VISIBLE);
                 progressBarImg.setVisibility(View.GONE);
+                recyHomeMeals.setVisibility(View.VISIBLE);
+                progressBarMeal.setVisibility(View.GONE);
                 assert response.body() != null;
                 mListRandomMeal = response.body().getMeals();
                 if (getActivity() != null) {
