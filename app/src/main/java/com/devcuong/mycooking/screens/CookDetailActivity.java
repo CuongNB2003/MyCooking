@@ -9,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +29,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CookDetailActivity extends BaseActivity {
-    private ImageView imgMeal;
+    private ImageView imgMeal, imgYoutobe, imgWebsite, imgFavorite;
     private ImageButton imgBack;
     private TextView tvNameToolbar, tvNameImg, tvErrMess, tvCategory, tvArea, tvTags, tvCooking;
-    private RelativeLayout btnYoutube, btnWebsite;
     private LinearLayout llMeal;
     private ProgressBar progressBar;
     private AppBarLayout appBarLayout;
@@ -53,9 +51,10 @@ public class CookDetailActivity extends BaseActivity {
         getMealDetail();
         setOnClickYoutube();
         setOnClickWebsite();
+
     }
     private void setOnClickWebsite() {
-        btnWebsite.setOnClickListener(v -> {
+        imgWebsite.setOnClickListener(v -> {
             if (websiteUrl != null && !websiteUrl.isEmpty()) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(websiteUrl));
@@ -69,7 +68,7 @@ public class CookDetailActivity extends BaseActivity {
     }
 
     private void setOnClickYoutube() {
-        btnYoutube.setOnClickListener(v -> {
+        imgYoutobe.setOnClickListener(v -> {
             if (youtubeUrl != null && !youtubeUrl.isEmpty()) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse(youtubeUrl));
@@ -149,8 +148,8 @@ public class CookDetailActivity extends BaseActivity {
         tvArea = findViewById(R.id.tv_area_meal);
         tvTags = findViewById(R.id.tv_tags_meal);
         tvCooking = findViewById(R.id.tv_cooking_meal);
-        btnWebsite = findViewById(R.id.website_layout);
-        btnYoutube = findViewById(R.id.youtube_layout);
-
+        imgYoutobe = findViewById(R.id.img_youtube);
+        imgFavorite = findViewById(R.id.img_favorite);
+        imgWebsite = findViewById(R.id.img_website);
     }
 }

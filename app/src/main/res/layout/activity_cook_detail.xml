@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/ScreenBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -107,62 +106,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <RelativeLayout
-                        android:id="@+id/youtube_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/img_youtube"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_youtobe"
+                        android:contentDescription="@string/todo" />
 
-                        <ImageView
-                            android:id="@+id/img_youtube"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_youtobe"
-                            android:contentDescription="@string/todo" />
-
-                        <TextView
-                            android:id="@+id/tv_youtube"
-                            style="@style/TextViewNone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/img_youtube"
-                            android:layout_alignBottom="@id/img_youtube"
-                            android:layout_marginStart="5dp"
-                            android:layout_toEndOf="@id/img_youtube"
-                            android:gravity="center"
-                            android:text="@string/youtube"/>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/website_layout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        tools:ignore="RelativeOverlap">
-
-                        <ImageView
-                            android:id="@+id/img_website"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_website"
-                            android:contentDescription="@string/todo" />
-
-                        <TextView
-                            android:id="@+id/tv_website"
-                            style="@style/TextViewNone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/img_website"
-                            android:layout_alignTop="@id/img_website"
-                            android:layout_alignBottom="@id/img_website"
-                            android:layout_marginStart="5dp"
-                            android:gravity="center"
-                            android:text="@string/website" />
-
-                    </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/img_website"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_website"
+                        android:layout_alignTop="@id/img_youtube"
+                        android:layout_alignBottom="@id/img_youtube"
+                        android:layout_marginStart="20dp"
+                        android:layout_toEndOf="@id/img_youtube"
+                        android:gravity="center"
+                        android:contentDescription="@string/todo" />
+                    <ImageView
+                        android:id="@+id/img_favorite"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_favorite"
+                        android:contentDescription="@string/todo"
+                        android:layout_alignParentEnd="true"/>
 
                 </RelativeLayout>
-
 
                 <TextView
                     style="@style/TextViewLineHorizontal"
