@@ -16,13 +16,18 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.devcuong.mycooking.R;
+import com.devcuong.mycooking.db.AppDatabase;
+import com.devcuong.mycooking.db.FavoriteDao;
 import com.devcuong.mycooking.obj.ListMeal;
 import com.devcuong.mycooking.obj.Meal;
 import com.devcuong.mycooking.retrofit.MealRetrofitApi;
+import com.devcuong.mycooking.setup.CustomDialog;
 import com.google.android.material.appbar.AppBarLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +42,8 @@ public class CookDetailActivity extends BaseActivity {
     private AppBarLayout appBarLayout;
     private String idMeal,  youtubeUrl, websiteUrl;
     private List<Meal> meal;
+    private final Executor executor = Executors.newSingleThreadExecutor();
+    private FavoriteDao favoriteDao;
 
 
     @Override
@@ -44,15 +51,74 @@ public class CookDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cook_detail);
         anhXa();
+        favoriteDao = AppDatabase.getDatabase(getApplicationContext()).favoriteDao();
         meal = new ArrayList<>();
         imgBack.setOnClickListener(v -> finish());
         idMeal = getIntent().getStringExtra("IdMeal");
+
         setVisibilityAppBar();
         getMealDetail();
         setOnClickYoutube();
         setOnClickWebsite();
-
+        setOnClickFavorite();
     }
+
+    private void setOnClickFavorite() {
+        imgFavorite.setOnClickListener(v -> {
+            Meal favoriteMeal = new Meal();
+            favoriteMeal.setIdMeal(meal.get(0).getIdMeal());
+            favoriteMeal.setStrMeal(meal.get(0).getStrMeal());
+            favoriteMeal.setStrMealThumb(meal.get(0).getStrMealThumb());
+
+            executor.execute(() -> {
+                Meal existingMeal = favoriteDao.getMealById(favoriteMeal.getIdMeal());
+                if (existingMeal == null) {
+                    // Nếu món ăn chưa có trong danh sách yêu thích, hỏi người dùng có muốn thêm nó vào danh sách không
+                    runOnUiThread(() -> {
+                        CustomDialog dialog = new CustomDialog(
+                                CookDetailActivity.this,
+                                "Thêm vào danh sách yêu thích",
+                                "Bạn có muốn thêm món ăn này vào danh sách yêu thích không?",
+                                (dialog1, which) -> {
+                                    Meal favoriteMeal1 = new Meal();
+                                    favoriteMeal1.setIdMeal(meal.get(0).getIdMeal());
+                                    favoriteMeal1.setStrMeal(meal.get(0).getStrMeal());
+                                    favoriteMeal1.setStrMealThumb(meal.get(0).getStrMealThumb());
+
+                                    executor.execute(() -> favoriteDao.insert(favoriteMeal1));
+                                    Toast.makeText(CookDetailActivity.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
+                                    imgFavorite.setImageResource(R.drawable.ic_favorite_selected);
+                                }
+                        );
+                        dialog.show();
+                    });
+                } else {
+                    // Nếu món ăn đã có trong danh sách yêu thích, hỏi người dùng có muốn xóa nó khỏi danh sách không
+                    runOnUiThread(() -> {
+
+                        CustomDialog dialog = new CustomDialog(
+                                CookDetailActivity.this,
+                                "Xóa khỏi danh sách yêu thích",
+                                "Bạn có muốn xóa món ăn này khỏi danh sách yêu thích không?",
+                                (dialog12, which) -> {
+                                    Meal favoriteMeal12 = new Meal();
+                                    favoriteMeal12.setIdMeal(meal.get(0).getIdMeal());
+                                    favoriteMeal12.setStrMeal(meal.get(0).getStrMeal());
+                                    favoriteMeal12.setStrMealThumb(meal.get(0).getStrMealThumb());
+
+                                    executor.execute(() -> favoriteDao.delete(existingMeal));
+                                    Toast.makeText(CookDetailActivity.this, "Đã xóa khỏi danh sách yêu thích", Toast.LENGTH_SHORT).show();
+                                    imgFavorite.setImageResource(R.drawable.ic_favorite);
+                                }
+                        );
+                        dialog.show();
+                    });
+                }
+            });
+        });
+    }
+
+
     private void setOnClickWebsite() {
         imgWebsite.setOnClickListener(v -> {
             if (websiteUrl != null && !websiteUrl.isEmpty()) {
@@ -106,6 +172,19 @@ public class CookDetailActivity extends BaseActivity {
         String strCategory = getResources().getString(R.string.category);
         String strArea = getResources().getString(R.string.area);
         String strIngredient = getResources().getString(R.string.ingredient);
+
+        executor.execute(() -> {
+            Meal existingMeal = favoriteDao.getMealById(meal.getIdMeal());
+            runOnUiThread(() -> {
+                if (existingMeal != null) {
+                    // Nếu `idMeal` tồn tại trong cơ sở dữ liệu, thay đổi biểu tượng thành trái tim màu đỏ
+                    imgFavorite.setImageResource(R.drawable.ic_favorite_selected);
+                } else {
+                    // Nếu `idMeal` không tồn tại trong cơ sở dữ liệu, để biểu tượng ở trạng thái mặc định
+                    imgFavorite.setImageResource(R.drawable.ic_favorite);
+                }
+            });
+        });
 
         tvNameImg.setText(meal.getStrMeal());
         tvNameToolbar.setText(meal.getStrMeal());

@@ -5,7 +5,6 @@
     style="@style/ScreenBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:paddingHorizontal="15dp"
     android:paddingVertical="10dp"
     tools:context=".fragments.SettingFragment">
