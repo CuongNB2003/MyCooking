@@ -1,6 +1,5 @@
 package com.devcuong.mycooking.adapters;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.devcuong.mycooking.R;
+import com.devcuong.mycooking.setup.CustomDialog;
 import com.devcuong.mycooking.setup.SearchHistory;
 
 import java.util.List;
@@ -44,18 +44,18 @@ public class SearchHistoryAdapter extends ArrayAdapter<String> {
 
         // Xử lý sự kiện nhấn lâu
         convertView.setOnLongClickListener(v -> {
-            new AlertDialog.Builder(getContext())
-                    .setTitle("Xóa lịch sử tìm kiếm")
-                    .setMessage("Bạn có muốn xóa '" + query + "' khỏi lịch sử tìm kiếm không?")
-                    .setPositiveButton("Có", (dialog, which) -> {
+            CustomDialog dialog = new CustomDialog(
+                    getContext(),
+                    "Xóa lịch sử tìm kiếm",
+                    "Bạn có muốn xóa '" + query + "' khỏi lịch sử tìm kiếm không?",
+                    (dialog1, which) -> {
                         searchHistory.removeFromHistory(query);
                         remove(query);
                         notifyDataSetChanged();
                         Toast.makeText(getContext(), "Xóa thành công", Toast.LENGTH_SHORT).show();
-                    })
-                    .setNegativeButton("Không", null)
-                    .show();
-
+                    }
+            );
+            dialog.show();
             return true;
         });
 

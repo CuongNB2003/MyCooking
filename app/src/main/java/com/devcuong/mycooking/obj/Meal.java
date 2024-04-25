@@ -1,6 +1,12 @@
 package com.devcuong.mycooking.obj;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+@Entity(tableName = "favorites")
 public class Meal {
+    @PrimaryKey
+    @NonNull
     private String idMeal; // id
     private String strMeal; // ten
     private String strCategory; // the loai
@@ -19,11 +25,12 @@ public class Meal {
         this.strTags = strTags;
     }
 
+    @NonNull
     public String getIdMeal() {
         return idMeal;
     }
 
-    public void setIdMeal(String idMeal) {
+    public void setIdMeal(@NonNull String idMeal) {
         this.idMeal = idMeal;
     }
 

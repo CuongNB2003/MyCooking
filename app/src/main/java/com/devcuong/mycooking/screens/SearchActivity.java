@@ -3,7 +3,6 @@ package com.devcuong.mycooking.screens;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
@@ -97,7 +96,6 @@ public class SearchActivity extends BaseActivity {
                 searchView.setIconified(false);
             }
         });
-        Log.d("====================", "onCreate: " + searchHistory.getHistory());
     }
 
     private void anhXa() {
