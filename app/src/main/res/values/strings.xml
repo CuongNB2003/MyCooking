@@ -28,6 +28,9 @@
     <string name="today_dish">Recommended dish for today</string>
     <string name="my_like">You may also like</string>
     <string name="loading">Loading</string>
+    <string name="search">Search</string>
+    <string name="query_hint">Enter the dish</string>
+    <string name="suggest">Food suggestions</string>
 
 
 </resources>
